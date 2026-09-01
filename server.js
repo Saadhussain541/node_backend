@@ -1,24 +1,17 @@
-const express=require('express');
-const connectDB=require('./config/db');
-require('dotenv').config();
+require("dotenv").config();
+const express = require("express");
+const connectDB = require("./config/db");
+const todoRoutes = require("./routes/todoRoutes");
 
-// Connect to database
+const app = express();
+
 connectDB();
 
-const app=express();
+app.use(express.json());
+app.use("/api/todos", todoRoutes);
 
-const PORT=process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-app.get('/',(req,res)=>{
-    res.send('API is running...');
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
-
-if(process.env.NODE_ENV==='production'){
-    app.listen(PORT,()=>{
-    console.log(`Server is running on port ${PORT}`);
-}); 
-}
-    
-
-
-module.exports=app;

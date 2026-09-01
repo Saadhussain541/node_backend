@@ -1,0 +1,5 @@
+username
+saadflutter541_db_user
+password
+Je8DAuLBJ2SzdTMN
+mongodb+srv://<db_username>:Je8DAuLBJ2SzdTMN@cluster0.z58ploh.mongodb.net/
